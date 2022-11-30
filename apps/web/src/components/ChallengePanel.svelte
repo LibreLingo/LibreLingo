@@ -11,40 +11,44 @@
   export let messageDetail = null
   export let submit = null
   export let skipAction = null
-  export let skipAllAction = null
   export let skipAllVoice = null
 
-  let background: "default" | "success" | "failure" | "info" = (() => {
-      if (correct) {
-          return "success"
-      }
-      if (incorrect) {
-          return "failure"
-      }
-      if (typo) {
-          return "info"
-      }
+  let state: "default" | "success" | "failure" | "info" = (() => {
+    if (correct) {
+      return "success"
+    }
+    if (incorrect) {
+      return "failure"
+    }
+    if (typo) {
+      return "info"
+    }
 
-      return "default"
+    return "default"
   })()
 </script>
 
-<Panel background="{background}">
-  <div slot="left">
-    {#if skipAction}
-      <Button on:click="{skipAction}">Skip</Button>
-    {/if}
-    <Button on:click="{skipAllAction}">Cancel</Button>
-    {#if skipAllVoice}
-      <Button on:click="{skipAllVoice}">Can't listen now</Button>
-    {/if}
-    {#if message}<b>{message}</b>{/if}
-    {#if messageDetail}
-      <p>{messageDetail}</p>
-    {/if}
+<Panel state="{state}">
+  <div slot="left" class="panel__left">
+    <div class="buttonset">
+      {#if skipAction}
+        <Button on:click="{skipAction}" style="secondary">Skip</Button>
+      {/if}
+      {#if skipAllVoice}
+        <Button on:click="{skipAllVoice}" style="secondary">Can't listen now</Button>
+      {/if}
+      <div class="panel__message">
+        {#if message}
+          <b>{message}</b>
+        {/if}
+        {#if messageDetail}
+          <div>{messageDetail}</div>
+        {/if}
+      </div>
+    </div>
   </div>
 
-  <div slot="right">
+  <div slot="right" class="panel__right">
     {#if buttonAction}
       <Button style="primary" type="submit" on:click="{buttonAction}">
         {buttonText}

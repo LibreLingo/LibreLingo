@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from "../components/NavBar.svelte"
   import Content from "lluis/Content.svelte"
+  import Footer from "lluis/Footer.svelte"
 
   export let readmeHTML: string
   export let title: string | null
@@ -14,18 +15,14 @@
   {/if}
 </svelte:head>
 
-<NavBar />
+<NavBar hasAuth />
 
-<section class="hero is-primary md-page">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">{title}</h1>
-      <div class="section box">
-        <slot />
-        <Content>
-          {@html readmeHTML}
-        </Content>
-      </div>
-    </div>
-  </div>
-</section>
+<main class="main-content container-md">
+  <h1>{title}</h1>
+  <slot />
+  <Content>
+    {@html readmeHTML}
+  </Content>
+</main>
+
+<Footer />

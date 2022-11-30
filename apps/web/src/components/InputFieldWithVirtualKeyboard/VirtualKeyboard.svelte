@@ -10,7 +10,7 @@
 <div class="virtual-keyboard">
   <HorizontalScroller>
     <slot>
-      <div class="keys">
+      <div class="virtual-keyboard__keys">
         {#each characters as character}
           <Button
             style="key"
@@ -25,36 +25,3 @@
     </slot>
   </HorizontalScroller>
 </div>
-
-<style type="text/scss">
-  .virtual-keyboard {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2em;
-    height: 100%;
-  }
-
-  .virtual-keyboard .keys {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  @media only screen and (pointer: coarse) {
-    .virtual-keyboard .keys {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-left: 12px;
-      padding-right: 12px;
-    }
-
-    .virtual-keyboard {
-      height: 48px;
-      position: fixed;
-      bottom: 68px;
-      left: 0;
-      right: 0;
-      background-color: white;
-      z-index: 100;
-    }
-  }
-</style>

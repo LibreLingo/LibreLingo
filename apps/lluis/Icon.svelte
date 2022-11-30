@@ -2,9 +2,16 @@
   export let size = "medium"
   export let prefix = "fas"
   export let icon: string
-  export let left = false
 </script>
 
-<span class={`icon is-${size}`} class:is-left={left}>
+<span class={`icon icon--${size}`}>
   <i class={`${prefix} fa-${icon} ${size === "large" ? "fa-2x" : ""}`} />
 </span>
+
+<style>
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

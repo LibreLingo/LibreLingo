@@ -14,6 +14,7 @@ import {
   faSpinner,
   faCircleArrowRight,
   faCircleArrowLeft,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
@@ -29,6 +30,7 @@ library.add(faHeart)
 library.add(faSpinner)
 library.add(faCircleArrowRight)
 library.add(faCircleArrowLeft)
+library.add(faXmark)
 dom.watch()
 
 window.startMsw = () => {

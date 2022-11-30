@@ -15,44 +15,28 @@
   })
 </script>
 
-<ul class="options">
+<ul class="challenge-options">
   {#each options as { formInTargetLanguage, correct, fake }, i}
-    <label for="{i.toString()}" class:fake="{fake && true}">
-      <input
-        type="radio"
-        bind:group="{selectedOption}"
-        value="{i}"
-        name="{i.toString()}"
-        id="{i.toString()}"
-        disabled="{disabled}"
-      />
-      <Option
-        correct="{correct}"
-        active="{selectedOption === i}"
-        inactive="{selectedOption !== null && selectedOption !== i}"
-        formInTargetLanguage="{formInTargetLanguage}"
-      />
-    </label>
+    <li
+      class:is-fake="{fake && true}"
+    >
+      <label for="{i.toString()}">
+        <input
+          type="radio"
+          class="challenge-options__input"
+          bind:group="{selectedOption}"
+          value="{i}"
+          name="{i.toString()}"
+          id="{i.toString()}"
+          disabled="{disabled}"
+        />
+        <Option
+          correct="{correct}"
+          active="{selectedOption === i}"
+          inactive="{selectedOption !== null && selectedOption !== i}"
+          formInTargetLanguage="{formInTargetLanguage}"
+        />
+      </label>
+    </li>
   {/each}
 </ul>
-
-<style type="text/scss">
-  @import "../variables";
-
-  .options {
-    list-style: none;
-    padding-top: 1.5em;
-    margin: 0;
-    margin-left: -0.5em;
-    margin-right: -0.5em;
-    user-select: none;
-  }
-  input {
-    margin-right: 5px;
-    cursor: pointer;
-  }
-  label {
-    display: flex;
-    align-items: center;
-  }
-</style>

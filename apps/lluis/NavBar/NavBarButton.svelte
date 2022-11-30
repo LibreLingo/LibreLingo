@@ -12,17 +12,3 @@
     <slot />
   </LinkOrButton>
 </div>
-
-<style type="text/scss">
-  div :global(*) {
-    height: 36px;
-    display: block;
-    padding: 6px;
-    color: var(--navbar-text-color);
-    border-radius: var(--button-radius-small);
-
-    &:hover, &:focus {
-      background-color: var(--navbar-highlight-color);
-    }
-  }
-</style>

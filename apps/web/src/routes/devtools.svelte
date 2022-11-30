@@ -29,50 +29,48 @@
   <title>LibreLingo - Development</title>
 </svelte:head>
 
-<NavBar />
+<NavBar hasAuth />
 
-<section class="section">
-  <div class="container">
-    <Content>
-      <h1 class="is-size-1">Development tools</h1>
-      <h2 class="is-size-2">Test pages</h2>
-      <ul>
-        <li><a href="/course/test">Test course</a></li>
-        {#each testSkills as testSkill}
-          <li>
-            <a target="_blank" href="/course/test/skill/{testSkill}">
-              Test skill:
-              <b>{testSkill}</b>
-            </a>
-          </li>
-        {/each}
+<main class="main-content container-md">
+  <Content>
+    <h1>Development tools</h1>
+    <h2>Test pages</h2>
+    <ul>
+      <li><a href="/course/test">Test course</a></li>
+      {#each testSkills as testSkill}
         <li>
-          <a
-            target="_blank"
-            href="/course/preview/skill/gist?skillName=helloworld&gistId=2428349a05d81f96b2311c2749ea5c6d"
-          >
-            Test skill: <b>GitHub Gist preview of a skill</b>
+          <a target="_blank" href="/course/test/skill/{testSkill}">
+            Test skill:
+            <b>{testSkill}</b>
           </a>
         </li>
-        <li>
-          <a
-            target="_blank"
-            href="/course/preview/skill/gist/introduction?gistId=2428349a05d81f96b2311c2749ea5c6d"
-          >
-            Test skill: <b>GitHub Gist preview of a skill introduction</b>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="/dev-typography">
-            <b>Typography</b>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="/course-tools-legacy/">
-            <b>The legacy dev tool</b>
-          </a>
-        </li>
-      </ul>
-    </Content>
-  </div>
-</section>
+      {/each}
+      <li>
+        <a
+          target="_blank"
+          href="/course/preview/skill/gist?skillName=helloworld&gistId=2428349a05d81f96b2311c2749ea5c6d"
+        >
+          Test skill: <b>GitHub Gist preview of a skill</b>
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          href="/course/preview/skill/gist/introduction?gistId=2428349a05d81f96b2311c2749ea5c6d"
+        >
+          Test skill: <b>GitHub Gist preview of a skill introduction</b>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="/dev-typography">
+          <b>Typography</b>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="/course-tools-legacy/">
+          <b>The legacy dev tool</b>
+        </a>
+      </li>
+    </ul>
+  </Content>
+</main>

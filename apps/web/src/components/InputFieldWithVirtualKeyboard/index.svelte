@@ -48,23 +48,25 @@
   }
 </script>
 
-<!-- svelte-ignore a11y-autofocus -->
-<input
-  tabindex={0}
-  data-test="answer"
-  type="text"
-  class="input"
-  autofocus
-  placeholder="Type your answer…"
-  {disabled}
-  spellcheck="false"
-  autocapitalize="none"
-  lang={languageCode}
-  use:focusMe
-  bind:value
-  bind:this={inputFieldRef}
-/>
+<div class="input-field-with-virtual-keyboard">
+  <!-- svelte-ignore a11y-autofocus -->
+  <input
+    tabindex={0}
+    data-test="answer"
+    type="text"
+    class="input"
+    autofocus
+    placeholder="Type your answer…"
+    {disabled}
+    spellcheck="false"
+    autocapitalize="none"
+    lang={languageCode}
+    use:focusMe
+    bind:value
+    bind:this={inputFieldRef}
+  />
 
-{#if !disabled}
-  <VirtualKeyboard characters={specialCharacters} {handleVirtualKey} />
-{/if}
+  {#if !disabled}
+    <VirtualKeyboard characters={specialCharacters} {handleVirtualKey} />
+  {/if}
+</div>

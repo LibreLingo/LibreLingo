@@ -59,37 +59,34 @@
 </script>
 
 <form on:submit|preventDefault="{submitChallenge}">
-  <div class="section">
-    <p class="is-size-1 is-size-2-tablet is-size-4-mobile has-text-centered">
-      Type
-      <Phrase phrase="{challenge.phrase}" />
-      in
-      {languageName}!
-    </p>
-  </div>
-  <Columns>
-    <Column>
-      <InputFieldWithVirtualKeyboard
-        specialCharacters="{specialCharacters}"
-        languageCode="{languageCode}"
-        disabled="{submitted}"
-        bind:value="{answer}"
-      />
-    </Column>
-    <Column>
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-1by1">
-            <img
-              src="images/{picture}"
-              alt=""
-              data-test="short text input illustrations"
-            />
-          </figure>
+  <h1 class="challenge-prompt">
+    Type
+    <Phrase phrase="{challenge.phrase}" />
+    in
+    {languageName}!
+  </h1>
+
+  <div class="challenge-short-input">
+    <Columns>
+      <Column size="8">
+        <InputFieldWithVirtualKeyboard
+          specialCharacters="{specialCharacters}"
+          languageCode="{languageCode}"
+          disabled="{submitted}"
+          bind:value="{answer}"
+        />
+      </Column>
+      <Column size="4">
+        <div class="challenge-short-input__image">
+          <img
+            src="images/{picture}"
+            alt=""
+            data-test="short text input illustrations"
+          />
         </div>
-      </div>
-    </Column>
-  </Columns>
+      </Column>
+    </Columns>
+  </div>
 
   {#if answer && !submitted}
     <ChallengePanel
@@ -113,7 +110,7 @@
   {#if submitted}
     {#if !correct}
       <ChallengePanel
-        message="Incorrect solution!"
+        message="Incorrect!"
         messageDetail="{`Correct answer: ${challenge.formInTargetLanguage[0]}`}"
         buttonText="Continue"
         incorrect
@@ -123,7 +120,7 @@
     {#if correct}
       {#if !spellingSuggestion}
         <ChallengePanel
-          message="Correct solution!"
+          message="Correct!"
           messageDetail=""
           buttonText="Continue"
           correct
@@ -143,10 +140,3 @@
     {/if}
   {/if}
 </form>
-
-<style type="text/scss">
-  .card {
-    max-width: 16em;
-    margin: auto;
-  }
-</style>

@@ -27,7 +27,7 @@
     (isBrowser() === true
         ? (window as unknown as WindowWithStars).stars
         : null) || "   "
-  export let size: "small" | "normal" = "small"
+  export let size: "small" | "medium" = "small"
 
   onMount(async () => {
       if (isBrowser() === true && isCypress()) {
@@ -54,31 +54,10 @@
   href="https://github.com/LibreLingo/LibreLingo"
 >
   {#if stars}
-    <span class="tag is-white">
-      <span class="stars">{stars}</span>
-      <span class="icon">
-        <Icon icon="star" />
-      </span>
+    <span class="stars">{stars}</span>
+    <span class="icon">
+      <Icon icon="star" />
     </span>
   {/if}
-  <span class="is-hidden-mobile">GitHub</span>
+  GitHub
 </Button>
-
-<style type="text/scss">
-  @import "../variables";
-
-  .tag {
-    color: inherit !important;
-    padding-left: 0;
-    background: transparent !important;
-
-    .stars {
-      padding-top: 0.1em;
-      font-family: monospace;
-    }
-
-    .icon {
-      margin-left: 0 !important;
-    }
-  }
-</style>

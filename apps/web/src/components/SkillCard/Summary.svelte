@@ -6,15 +6,6 @@
   export let completed: boolean
 </script>
 
-<div class:completed class:stale>
+<div class="skill-card__summary" class:is-completed={completed} class:is-stale={stale}>
   <ClampedText text="{`Learn: ${summary.join(', ')}`}" />
 </div>
-
-<style type="text/scss">
-  @import "../../variables";
-
-  .completed,
-  .stale {
-    color: $white;
-  }
-</style>

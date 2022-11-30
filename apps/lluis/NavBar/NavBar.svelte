@@ -1,36 +1,20 @@
-<nav data-test-id="site-navbar" aria-label="main navigation">
-  <div class="left">
+<nav class="navbar" data-test-id="site-navbar">
+  <div class="navbar__content container-lg" class:has-middle={$$slots.middle}>
     <slot name="left" />
-  </div>
-
-  <div class="middle" />
-
-  <div class="right">
+    {#if $$slots.middle}
+      <slot name="middle" />
+    {/if}
     <slot name="right" />
   </div>
 </nav>
 
-<style type="text/scss">
-  nav {
-    display: flex;
-    position: relative;
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    height: var(--navbar-height);
-    padding: var(--navbar-padding-vertical) var(--navbar-padding-horizontal);
-
-    background: var(--navbar-background);
-    color: var(--navbar-text-color);
-    border: 0;
-
-    > * {
-      img {
-        height: var(--navbar-logo-height);
-      }
-    }
-
-    .middle {
-      flex-grow: 1;
-    }
+    z-index: 10;
+    background-color: var(--navbar-background);
   }
 </style>

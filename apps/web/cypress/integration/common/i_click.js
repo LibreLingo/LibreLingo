@@ -9,5 +9,5 @@ Then("I click {string}", (text) => {
 })
 
 Then("I click the {string} button", (text) => {
-  cy.get(".lluis-button").contains(text).click()
+  cy.findByRole("button", { name: text }).click()
 })

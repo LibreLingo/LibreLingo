@@ -27,33 +27,28 @@
   <title>Log in - LibreLingo</title>
 </svelte:head>
 
-<NavBar />
+<NavBar hasAuth />
 
-<section class="section">
-  <div class="container">
-    <form on:submit|preventDefault="{handleLogin}">
-      <h2 class="is-size-2">Log in</h2>
+<main class="main-content container-sm grid">
+  <h1>Log in</h1>
+  <form on:submit|preventDefault="{handleLogin}" class="form grid">
+    <FormField
+      name="Username"
+      id="username"
+      bind:value="{username}"
+    />
 
-      <FormField
-        name="Username"
-        icon="user"
-        id="username"
-        bind:value="{username}"
-      />
+    <FormField
+      name="Password"
+      id="password"
+      type="password"
+      bind:value="{password}"
+    />
 
-      <FormField
-        name="Password"
-        icon="lock"
-        id="password"
-        type="password"
-        bind:value="{password}"
-      />
+    {#if error !== null}
+      <p class="form__error">{error}</p>
+    {/if}
 
-      {#if error !== null}
-        <p class="help is-danger">{error}</p>
-      {/if}
-
-      <Button on:click="{handleLogin}" type="submit">Log in</Button>
-    </form>
-  </div>
-</section>
+    <Button on:click="{handleLogin}" type="submit">Log in</Button>
+  </form>
+</main>

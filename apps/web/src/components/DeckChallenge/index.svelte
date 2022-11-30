@@ -45,11 +45,10 @@
   })
 </script>
 
-<p class="is-size-1 is-size-2-tablet is-size-4-mobile has-text-centered">
+<h1 class="challenge-prompt">
   Which of these is
-  <strong data-test="meaning-in-source-language">{currentChallenge.meaningInSourceLanguage}</strong>
-  ?
-</p>
+  <b class="challenge-prompt__phrase" data-test="meaning-in-source-language">{currentChallenge.meaningInSourceLanguage}</b>?
+</h1>
 
 <form on:submit|preventDefault="{submitChallenge}">
   <OptionDeck {options} bind:selectedOption disabled="{submitted}" />
@@ -74,14 +73,14 @@
   {#if submitted}
     {#if options[selectedOption].correct}
       <ChallengePanel
-        message="Correct solution!"
+        message="Correct!"
         buttonText="Continue"
         correct
         buttonAction="{finishChallenge}" />
     {/if}
     {#if !options[selectedOption].correct}
       <ChallengePanel
-        message="Incorrect solution!"
+        message="Incorrect!"
         buttonText="Continue"
         incorrect
         buttonAction="{finishChallenge}" />

@@ -7,8 +7,6 @@
   import InputFieldWithVirtualKeyboard from "./InputFieldWithVirtualKeyboard/index.svelte"
   import { playAudio } from "../media/sound"
   import Button from "lluis/Button.svelte"
-  import Column from "lluis/Column.svelte"
-  import Columns from "lluis/Columns.svelte"
 
   export let challenge
   export let registerResult
@@ -75,81 +73,75 @@
 </script>
 
 <form on:submit|preventDefault="{submitChallenge}">
-  <div class="section">
-    <p class="is-size-1 is-size-2-tablet is-size-4-mobile has-text-centered">
-      Type what you hear
-    </p>
-  </div>
+  <h1 class="challenge-prompt">Type what you hear</h1>
 
-  <Columns>
-    <Column size="1">
-      <Button size="large" style="primary" on:click="{playChallengeVoice}">
+  <div class="challenge-listening">
+    <div class="challenge-listening__button-and-input">
+      <Button style="primary" on:click="{playChallengeVoice}">
         <Icon icon="volume-up" />
       </Button>
-    </Column>
-    <Column>
       <InputFieldWithVirtualKeyboard
         specialCharacters="{specialCharacters}"
         languageCode="{languageCode}"
         disabled="{submitted}"
         bind:value="{answer}"
       />
-    </Column>
-  </Columns>
+    </div>
 
-  {#if answer && !submitted}
-    <ChallengePanel
-      message=""
-      buttonText="Submit"
-      submit
-      skipAction="{skipChallenge}"
-      skipAllAction="{skipAllChallenges}"
-      skipAllVoice="{skipAllVoice}"
-    />
-  {/if}
-
-  {#if answer === "" && !submitted}
-    <ChallengePanel
-      message="{null}"
-      buttonText="{null}"
-      skipAction="{skipChallenge}"
-      skipAllAction="{skipAllChallenges}"
-      skipAllVoice="{skipAllVoice}"
-    />
-  {/if}
-
-  {#if submitted}
-    {#if !correct}
+    {#if answer && !submitted}
       <ChallengePanel
-        message="Incorrect solution!"
-        messageDetail="{`Correct answer: ${challenge.answer}`}"
-        buttonText="Continue"
-        incorrect
-        buttonAction="{finishChallenge}"
+        message=""
+        buttonText="Submit"
+        submit
+        skipAction="{skipChallenge}"
+        skipAllAction="{skipAllChallenges}"
+        skipAllVoice="{skipAllVoice}"
       />
     {/if}
 
-    {#if correct}
-      {#if !spellingSuggestion}
+    {#if answer === "" && !submitted}
+      <ChallengePanel
+        message="{null}"
+        buttonText="{null}"
+        skipAction="{skipChallenge}"
+        skipAllAction="{skipAllChallenges}"
+        skipAllVoice="{skipAllVoice}"
+      />
+    {/if}
+
+    {#if submitted}
+      {#if !correct}
         <ChallengePanel
-          message="Correct solution!"
-          messageDetail="{`Meaning: "${challenge.meaning}"`}"
+          message="Incorrect!"
+          messageDetail="{`Correct answer: ${challenge.answer}`}"
           buttonText="Continue"
-          correct
+          incorrect
           buttonAction="{finishChallenge}"
         />
       {/if}
 
-      {#if spellingSuggestion}
-        <ChallengePanel
-          message="You have a typo!"
-          messageDetail="{spellingSuggestion ||
-            `Meaning: "${challenge.meaning}"`}"
-          buttonText="Continue"
-          typo
-          buttonAction="{finishChallenge}"
-        />
+      {#if correct}
+        {#if !spellingSuggestion}
+          <ChallengePanel
+            message="Correct!"
+            messageDetail="{`Meaning: "${challenge.meaning}"`}"
+            buttonText="Continue"
+            correct
+            buttonAction="{finishChallenge}"
+          />
+        {/if}
+
+        {#if spellingSuggestion}
+          <ChallengePanel
+            message="You have a typo!"
+            messageDetail="{spellingSuggestion ||
+              `Meaning: "${challenge.meaning}"`}"
+            buttonText="Continue"
+            typo
+            buttonAction="{finishChallenge}"
+          />
+        {/if}
       {/if}
     {/if}
-  {/if}
+  </div>
 </form>

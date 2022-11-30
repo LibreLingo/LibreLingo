@@ -25,3 +25,4 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 require("cy-tkey-screenshot")
+require("@testing-library/cypress/add-commands")

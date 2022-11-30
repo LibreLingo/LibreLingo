@@ -39,14 +39,18 @@
     | "revert-layer"
     | "unset"
 
+  type SpacingSize = "none" | "xl"
+
   export let direction: "row" | "column" = "row"
   export let align: StackAlign = "normal"
   export let justify: StackJustify = "normal"
+  export let spacing: SpacingSize = "none"
 
   let compiledStyle = `
   flex-direction: ${direction};
   align-items: ${align};
   justify-content: ${justify};
+  gap: var(--spacing-${spacing});
   `
 </script>
 

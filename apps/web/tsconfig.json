@@ -4,7 +4,7 @@
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
   "compilerOptions": {
       "outDir": "dist",
-      "types": ["node", "jest"],
+      "types": ["node", "jest", "@testing-library/cypress"],
       "resolveJsonModule": true,
       "strict": false
   }

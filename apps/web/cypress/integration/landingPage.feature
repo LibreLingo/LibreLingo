@@ -9,5 +9,5 @@ Feature: Landing page
       Then landing page looks cute
       And I read "LibreLingo"
       And I see a "Start learning Spanish" button
-      And I see an "About LibreLingo" button
+      And I see an "About LibreLingo" link
       And "Licensed under AGPL - Free as in Freedom" is graphically represented

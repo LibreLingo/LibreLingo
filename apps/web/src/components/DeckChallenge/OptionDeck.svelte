@@ -23,69 +23,33 @@
   })
 </script>
 
-<ul class="options">
+<ul class="challenge-option-deck">
   {#each options as { pictures, formInTargetLanguage, correct, fake }, i}
-    <label
-      for="{i.toString()}"
-      class:fake="{fake && true}"
-      class:real="{!(fake && true)}"
+    <li
+      class:is-fake="{fake && true}"
+      class:is-real="{!(fake && true)}"
     >
-      <input
-        type="radio"
-        bind:group="{selectedOption}"
-        value="{i}"
-        name="{i.toString()}"
-        id="{i.toString()}"
-        disabled="{disabled}"
-      />
-      <OptionCard
-        correct="{correct}"
-        active="{selectedOption === i}"
-        inactive="{selectedOption !== null && selectedOption !== i}"
-        picture="{shuffle(pictures)[0]}"
-        number="{i + 1 - (keymap[i] - i) + 1}"
-        formInTargetLanguage="{formInTargetLanguage}"
-      />
-    </label>
+      <label
+        for="{i.toString()}"
+      >
+        <input
+          type="radio"
+          class="challenge-option-deck__input"
+          bind:group="{selectedOption}"
+          value="{i}"
+          name="{i.toString()}"
+          id="{i.toString()}"
+          disabled="{disabled}"
+        />
+        <OptionCard
+          correct="{correct}"
+          active="{selectedOption === i}"
+          inactive="{selectedOption !== null && selectedOption !== i}"
+          picture="{shuffle(pictures)[0]}"
+          number="{i + 1 - (keymap[i] - i) + 1}"
+          formInTargetLanguage="{formInTargetLanguage}"
+        />
+      </label>
+    </li>
   {/each}
 </ul>
-
-<style type="text/scss">
-  @import "../../variables";
-
-  .options {
-    list-style: none;
-    padding-top: 1.5em;
-    margin: 0;
-    margin-left: -0.5em;
-    margin-right: -0.5em;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-  }
-
-  input {
-    display: none;
-  }
-
-  label {
-    width: 100%;
-    padding: 1em;
-  }
-
-  @include from($tablet) {
-    .fake {
-      display: none;
-    }
-  }
-
-  @include until($tablet) {
-    .options {
-      flex-wrap: wrap;
-    }
-
-    label {
-      width: 50%;
-    }
-  }
-</style>

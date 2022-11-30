@@ -26,21 +26,3 @@
 >
   <slot />
 </h1>
-
-<style type="text/scss">
-  @import "./node_modules/bulma/sass/utilities/_all";
-  @import "./node_modules/bulma/sass/elements/title.sass";
-
-  h1 {
-    max-width: 100%;
-    &:not(.multiline) {
-      text-overflow: ellipsis;
-
-      /* Needed to make ellipsis work */
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    color: inherit !important;
-  }
-</style>

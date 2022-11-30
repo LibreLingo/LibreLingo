@@ -46,7 +46,6 @@ Given("I have a stale skill", () => {
 
 Then("I see a stale skill", () => {
   cy.get("[data-completed=true][data-stale=true]").should("have.length", 1)
-  cy.get(".svg-inline--fa").should("be.visible")
 })
 
 Then("I don't see any stale skills", () => {
@@ -58,7 +57,7 @@ Given("I complete a lesson", () => {
   cy.get("input[type=text]").type("el perro")
   cy.contains("Submit").click()
   cy.contains("Continue").click()
-  cy.contains("Cancel").click()
+  cy.get("[aria-label=Cancel]").should("be.visible")
   cy.contains("Continue to course page").click()
 })
 

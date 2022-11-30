@@ -62,7 +62,7 @@
 
 {#if !loading}
   <MarkDownPage {readmeHTML} {title} description={$_("about.meta.description")}>
-    <div>
+    <div class="buttonset m-top-1 m-bottom-2">
       <Button
         style="secondary"
         href={`course/${courseName}`}
@@ -76,9 +76,3 @@
     </div>
   </MarkDownPage>
 {/if}
-
-<style>
-  div {
-    margin-bottom: var(--spacing-large);
-  }
-</style>

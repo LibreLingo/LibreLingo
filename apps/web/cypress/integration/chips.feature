@@ -9,7 +9,8 @@ Feature: Chips challenge
     And I read "are"
     And I read "you"
     And I read "today?"
-    And I see a panel with only a Skip and a Cancel button
+    Then I see a panel with only a Skip button
+    Then I see a cancel button
     And I see the correct chips
     And chips challenge looks correct
     And I see a "Feedback" link in the navbar
@@ -28,7 +29,8 @@ Feature: Chips challenge
     And I read "Correct answer: ¿Como, estás hoy?"
     And I see a "Continue" button
     Given I click "Continue"
-    Then I see a panel with only a Skip and a Cancel button
+    Then I see a panel with only a Skip button
+    Then I see a cancel button
 
   Scenario: Submitting a correct solution
     Given I open "/course/test/skill/chips-test-0?testChallenge=5000997897bb"
@@ -41,7 +43,8 @@ Feature: Chips challenge
     And I read "Correct solution"
     And I see a "Continue" button
     Given I click "Continue"
-    Then I see a panel with only a Skip and a Cancel button
+    Then I see a panel with only a Skip button
+    Then I see a cancel button
 
   Scenario: Submitting an alternative correct solution
     Given I open "/course/test/skill/chips-test-0?testChallenge=5000997897bb"
@@ -53,7 +56,8 @@ Feature: Chips challenge
     And I read "Correct solution"
     And I see a "Continue" button
     Given I click "Continue"
-    Then I see a panel with only a Skip and a Cancel button
+    Then I see a panel with only a Skip button
+    Then I see a cancel button
 
     Scenario: Submitting an alternative correct solution with uncapitalized chips
       Given I open "/course/test/skill/chips-test-0?testChallenge=59cd9b603be9"
@@ -65,4 +69,7 @@ Feature: Chips challenge
       And I read "Correct solution"
       And I see a "Continue" button
       Given I click "Continue"
-      Then I see a panel with only a Skip and a Cancel button
+      Then I see a panel with only a Skip button
+      Then I see a cancel button
+
+

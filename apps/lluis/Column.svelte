@@ -2,23 +2,22 @@
   import type { SizeType } from "./types"
 
   export let size: null | SizeType = null
-  export let sizeDesktop: null | SizeType = null
-  export let sizeTablet: null | SizeType = null
+  export let centered = false
 </script>
 
 <div
-  data-size={size}
-  data-size-desktop={sizeDesktop}
-  data-size-tablet={sizeTablet}
-  class:is-one-third-desktop={sizeDesktop === "1/3"}
-  class:is-half-tablet={sizeTablet === "1/2"}
-  class:is-one-third-tablet={sizeTablet === "1/3"}
-  class:is-one-quarter={size === "1/4"}
-  class:is-one-third={size === "1/3"}
-  class:is-three-fifths={size === "3/5"}
-  class:is-two-fifths={size === "2/5"}
-  class:is-1={size === "1"}
-  class="column"
+  class:col-1={size === "1"}
+  class:col-2={size === "2"}
+  class:col-3={size === "3"}
+  class:col-4={size === "4"}
+  class:col-5={size === "5"}
+  class:col-6={size === "6"}
+  class:col-7={size === "7"}
+  class:col-8={size === "8"}
+  class:col-9={size === "9"}
+  class:col-10={size === "10"}
+  class:col-11={size === "11"}
+  class:col-centered={centered}
 >
   <slot />
 </div>

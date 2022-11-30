@@ -2,53 +2,54 @@
   import { waitLocale } from "svelte-i18n"
   import isBrowser from "../utils/isBrowser"
 
+  export async function preload() {
+    return waitLocale()
+  }
+
   /* Adding var css styels to JSON format */
 
   const defaultTheme = {
-      "spacing-small": "8px",
-      "spacing-medium": "12px",
-      "spacing-large": "calc(var(--spacing-small) + var(--spacing-medium))",
-      "blue": "#325f74",
-      "white": "#faf4f0",
+    // Colors
+    white: "#fff",
+    "color-primary": "#864dcb",
+    "color-dark": "red",
+    "color-accent": "hsl(36, 80%, 50%)",
 
-      "animation-short": ".1s",
+    // Text colors
+    "text-color-default": "#000",
+    "text-color-inverted": "#fff",
 
-      /* primary button stuff */
-      "button-primary-background-color": "#325f74",
-      "button-primary-text-color": "#fff",
-      "button-primary-border": "transparent",
-      /* secondary button stuff */
-      "button-secondary-background-color": "#f5f5f5",
-      "button-secondary-text-color": "#111",
-      "button-secondary-border": "#b5b5b5",
-      /* virtual keyboard button stuff */
-      "button-key-background-color": "#f5f5f5",
-      "button-key-text-color": "#111",
-      "button-key-border": "#b5b5b5",
-      /* generic button stuff */
-      "button-radius-small": "calc(var(--spacing-small) / 2)",
+    // Font sizes
+    "font-size-normal": "16px",
+    "font-size-large": "20px",
+    "font-size-xlarge": "24px",
 
-      "navbar-background": "var(--blue)",
-      "navbar-text-color": "var(--white)",
-      "navbar-highlight-color":" rgba(255, 255, 255, .1)",
-      "navbar-height": "52px",
-      "navbar-padding-vertical": "var(--spacing-small)",
-      "navbar-padding-horizontal": "var(--spacing-medium)",
-      "navbar-logo-height": "calc(var(--navbar-height) - 2 * var(--spacing-small))",
+    // Spacing
+    "spacing-none": "0",
+    "spacing-xl": "100px",
 
-      "panel-background": "white",
-      "panel-background-success": "#84b83f",
-      "panel-background-failure": "#ab2149",
-      "panel-background-info": "#fcb141",
+    // Button specific styles
+    // Primary
+    "button-color-primary": "var(--color-primary)",
+    "button-border-color-primary": "transparent",
+    "button-color-primary-hover": "var(--color-primary-dark)",
+
+    // Accent
+    "button-color-accent": "var(--color-accent)",
+    "button-border-color-accent": "transparent",
+
+    // Secondary
+    "button-color-secondary": "var(--white)",
+    "button-border-color-secondary": "var(--button-color-primary)",
+
+    // NavBar specific styles
+    "navbar-background": "rgba(255, 255, 255, .85)",
+    "navbar-height": "96px",
   }
-  let theme 
+  let theme
   theme = Object.entries(defaultTheme)
-      .map(([key, value]) => `--${key}:${value}`)
-      .join(";")
-
-  export async function preload() {
-      return waitLocale()
-  }
+    .map(([key, value]) => `--${key}:${value}`)
+    .join(";")
 </script>
 
 <svelte:head>
@@ -79,9 +80,11 @@
 </svelte:head>
 
 {#if isBrowser() !== true}
-  <div class="pageloader is-active"><span class="title">LibreLingo</span></div>
+  <div class="pageloader is-active">
+    <span class="pageloader__title">Loading LibreLingo...</span>
+  </div>
 {/if}
 
-<main style="{theme}">
+<main style={theme}>
   <slot />
 </main>

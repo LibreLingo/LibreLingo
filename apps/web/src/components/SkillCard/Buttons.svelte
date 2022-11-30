@@ -7,7 +7,7 @@
   export let title
 </script>
 
-<div class="container">
+<div class="buttonset">
   {#if completed}
     <Button style="primary" href={practiceHref}>Practice {title}</Button>
   {:else if started}

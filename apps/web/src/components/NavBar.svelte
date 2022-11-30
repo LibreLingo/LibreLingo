@@ -11,6 +11,12 @@ import { stores } from '@sapper/app';
   export let hasAuth = false
   export let repositoryURL = null
 
+  export let dark = false
+  let logoURL =
+    dark === true
+        ? "/images/logo.svg"
+        : "/images/logo-dark.svg"
+
   type WindowWithLogout = Window & {
     _Logout: () => void
   }
@@ -24,11 +30,13 @@ import { stores } from '@sapper/app';
 </script>
 
 <NavBar data-test="navbar">
-  <div slot="left">
-    <Logo src="/images/logo.svg" alt="LibreLingo" link={homepageLink}/>
+  <div slot="left" class="navbar__logo">
+    <a href={homepageLink}>
+      <Logo src="{logoURL}" alt="LibreLingo" />
+    </a>
   </div>
 
-  <div slot="right">
+  <div slot="right" class="navbar__nav">
     <NavBarButtonSet>
       {#if repositoryURL}
         <NavBarButton href={repositoryURL} target="_blank">Feedback</NavBarButton>
@@ -48,9 +56,3 @@ import { stores } from '@sapper/app';
     </NavBarButtonSet>
   </div>
 </NavBar>
-
-<style>
-  div {
-    height: 100%;
-  }
-</style>

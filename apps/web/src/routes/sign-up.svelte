@@ -210,76 +210,69 @@
   <meta name="description" content="{$_('sign-up.meta.description')}" />
 </svelte:head>
 
-<NavBar />
+<NavBar hasAuth />
 
-<section class="section">
-  <div class="container">
-    <form on:submit|preventDefault="{handleSignUp}">
-      <h2 class="is-size-2">Sign up</h2>
+<main class="main-content container-sm grid">
+  <h1>Sign up</h1>
+  <form on:submit|preventDefault="{handleSignUp}" class="form grid">
+    <FormField
+      name="Username"
+      id="username"
+      formStatus="{errors}"
+      bind:value="{username}"
+    />
+    <FormField
+      name="Email"
+      id="email"
+      formStatus="{errors}"
+      bind:value="{email}"
+    />
+    <FormField
+      name="Password"
+      id="password"
+      type="password"
+      formStatus="{errors}"
+      bind:value="{password}"
+    />
+    <FormField
+      name="Repeat password"
+      id="password_confirmation"
+      type="password"
+      formStatus="{errors}"
+      bind:value="{password_confirmation}"
+    />
 
-      <FormField
-        name="Username"
-        icon="user"
-        id="username"
-        formStatus="{errors}"
-        bind:value="{username}"
-      />
-      <FormField
-        name="Email"
-        icon="envelope"
-        id="email"
-        formStatus="{errors}"
-        bind:value="{email}"
-      />
-      <FormField
-        name="Password"
-        icon="lock"
-        id="password"
-        type="password"
-        formStatus="{errors}"
-        bind:value="{password}"
-      />
-      <FormField
-        name="Repeat password"
-        icon="lock"
-        id="password_confirmation"
-        type="password"
-        formStatus="{errors}"
-        bind:value="{password_confirmation}"
-      />
-
-      <div class="field">
-        <div class="control">
-          <label class="checkbox">
-            <input
-              type="checkbox"
-              name="license"
-              id="license"
-              bind:checked="{license_accepted}"
-            />
-            I agree to the
-            <a href="/tos">Terms and Conditions</a>
-            and the
-            <a href="/license">GNU Affero General Public License</a>
-          </label>
-        </div>
-        {#if errors["license"] != null}
-          <p class="help is-danger">{errors["license"]}</p>
-        {/if}
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input
+            type="checkbox"
+            name="license"
+            id="license"
+            bind:checked="{license_accepted}"
+          />
+          I agree to the
+          <a href="/tos">Terms and Conditions</a>
+          and the
+          <a href="/license">GNU Affero General Public License</a>
+        </label>
       </div>
-
-      {#if errors._form != null}
-        <p class="help is-danger">{errors._form}</p>
+      {#if errors["license"] != null}
+        <p class="form__error">{errors["license"]}</p>
       {/if}
+    </div>
 
-      <Button
-        on:click="{handleSignUp}"
-        loading="{loading}"
-        asHref="/sign-up-success"
-        type="submit"
-      >
-        Sign up
-      </Button>
-    </form>
-  </div>
-</section>
+    {#if errors._form != null}
+      <p class="form__error">{errors._form}</p>
+    {/if}
+
+    <Button
+      on:click="{handleSignUp}"
+      loading="{loading}"
+      asHref="/sign-up-success"
+      type="submit"
+    >
+      Sign up
+    </Button>
+  </form>
+</main>
