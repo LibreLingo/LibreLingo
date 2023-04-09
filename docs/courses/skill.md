@@ -41,7 +41,7 @@ courses/spanish-from-english/basics/skills/
 
 Here, `animals.yaml`, `clothes.yaml`, and `food.yaml` are skills. These skill files are kept inside a `skills` folder. The YAML files contain information about the skill (see below).
 
-Skill yaml filenames should not have spaces and should be written in `slug-form`. The human-friendly `Name` in the yaml, however, can contain uppercase and spaces.
+Skill yaml filenames should not have spaces and should be written in `slug-form`. The human-friendly `Name` in the yaml, however, can contain uppercase and spaces. This name will appear as the skill title in the app.
 
 <a id="yaml"></a>
 ## `(skill_name).yaml`
@@ -111,9 +111,9 @@ Two-way-dictionary:
 ### Data breakdown
 
 **`Skill`** has information about the skill.
-- `Skill > Name`: The human-friendly name of the skill.
+- `Skill > Name`: The human-friendly name of the skill. It will appear as the skill title in the app.
 - `Skill > Id`: The ID of the course. **NOTE:** This should be unchanged if you're translating or editing an existing course. Only if you're creating a new course should this have a unique [UUID v4](https://www.uuidgenerator.net/version4) string. Details for which you can find [here](creating-courses.md).
-- `Skill > Thumbnails`: A list of filenames of the thumbnails to be used on the course page to give an idea of the skill. A list of available files can be found on [`apps/web/static/images/`](https://github.com/LibreLingo/LibreLingo/tree/main/apps/web/static/images). The names should be used without extension and without `_tiny` or `_tinier` parts, e.g., `banana2_tinier.jpg` should be written as `banana2`.
+- `Skill > Thumbnails`: A list of filenames of the thumbnails to be used on the course page to give an idea of the skill. A list of available files can be found on [`apps/web/static/images/`](https://github.com/LibreLingo/LibreLingo/tree/main/apps/web/static/images). The file names (images) should be used without extension and without `_tiny` or `_tinier` parts, e.g., `banana2_tinier.jpg` should be written as `banana2`.
 
 **`New words`** has a list of new words that the lesson teaches.
 - `Word`: The word in the target language, i.e., the language the user is learning.
@@ -128,13 +128,19 @@ Two-way-dictionary:
 - `Translation`: Translation of the phrase to the source language.
 - `Alternative translations`: A list of alternative translations to the source language, which will *not* be taught but will be accepted as correct translations of the `Phrase` field if supplied by the user. (optional)
 
-**`Mini-dictionary`** has a list of terms and meanings the user can view as a sort of "hint" if they are stuck. Entries are accessed by mousing over terms in an exercise, which brings up a tooltip with the corresponding term(s) in the other language. An entry is required for every term used in a skill.
+**`Mini-dictionary`** has a list of terms and meanings the user can view as a sort of "hint" if they are stuck. Entries are accessed by mousing over terms in an exercise, which brings up a tooltip with the corresponding term(s) in the other language. An entry is required for every term used in the composition of the phrases in a skill.
 
 Note that all `New words` are automatically added to the `Mini-dictionary`, in both translation directions, using the `Word` and `Translation` fields (`Synonyms` and `Also accepted` are ignored).
 
-`Mini-dictionary` entries do not only apply to this skill; the meanings will apply course-wide and be merged with the same term in other skills, if applicable. This means that entries can be omitted when they are already present in other skills.
+`Mini-dictionary` entries do not only apply to this skill; the meanings will apply course-wide and be merged with the same term in other skills, if applicable. This means that entries can be omitted when they are already present in other skills. Although upper case and lower case letters have the same value, the syntax of the entries should be the same to be accepted from other skills; exact match of the words is necessary. 
 
-`Mini-dictionary` entries can define a term that spans multiple words, for example, a phrase like "post office". For this to work, "post office" will need to be enclosed in curly braces -- `{post office}` -- wherever it appears in the skill. (Due to YAML, strings containing braces will need to be quoted.)
+`Mini-dictionary` entries can define a term that spans multiple words, for example, a phrase like "post office". For this to work, "post office" will need to be enclosed in curly braces -- `{post office}` -- wherever it appears in the skill. (Due to YAML, strings containing braces will need to be quoted like below)
+
+```
+Mini-dictionary:
+  French:
+    - poste: "{post office}"
+```
 
 - `<destination language>`: A list of terms in the destination language as key and meaning in the target audience's language.
 - `<target audience's language>`: A list of terms in the target audience's language as key and meaning in the destination language.
