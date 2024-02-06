@@ -1,6 +1,6 @@
 [Docker Hub](https://hub.docker.com/r/librelingo/librelingo)
 ## Usage
-The LibreLingo container may take a little while too start up, especially if it is the first time running the container. You can follow the logs for the contaienr by running 
+The LibreLingo container may take a little while too start up, especially if it is the first time running the container. You can follow the logs for the contaienr by running
 ```
 docker container logs -f LibreLingo
 ```

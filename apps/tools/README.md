@@ -50,5 +50,3 @@ if re.search(r'[^a-zA-Z0-9_.-]', img):
 * but other than these words should be either in one or the other section.
 * TODO: we might want to add a warning if the appear in both (that could be silenced by a flag)
 * should find "mujer" in "la mujer" but not "mu" in "la mujer" maybe should indicate it is partial match
-
-

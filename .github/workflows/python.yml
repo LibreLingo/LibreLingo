@@ -30,12 +30,9 @@ jobs:
       - name: Test Python types (mypy)
         shell: bash
         run: poetry run mypy apps
-      - name: Python code style (black)
+      - name: Python code style (ruff)
         shell: bash
-        run: poetry run black apps --check
-      - name: Python code style (pylint)
-        shell: bash
-        run: poetry run pylint $(git ls-files '*.py')
+        run: poetry run ruff check apps
       - name: validate that Test Course Json files are up to date
         run: |
           poetry install --no-interaction

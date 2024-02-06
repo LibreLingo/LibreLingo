@@ -39,9 +39,9 @@ def assert_folders_are_identical(expected_path, actual_path):
 
             if filename.endswith(".md"):
                 with open(os.path.join(actual_path, relpath)) as fh:
-                    actual = fh.read()
+                    actual = fh.read().strip()
                 with open(os.path.join(expected_path, relpath)) as fh:
-                    expected = fh.read()
+                    expected = fh.read().strip()
                 assert actual == expected, relpath
                 continue
 

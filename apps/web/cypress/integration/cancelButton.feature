@@ -11,4 +11,3 @@ Feature: Cancel button in a practice session
     Given I open "/course/test-2/skill/animals"
     And I click "Cancel"
     Then I should be on "/course/test-2"
- 

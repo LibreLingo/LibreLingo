@@ -11,4 +11,3 @@ def load_course(path: str)
 ```
 
 Load a YAML-based course into a Course() object
-

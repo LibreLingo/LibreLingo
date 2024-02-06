@@ -34,7 +34,13 @@ autopep8 = "^2.0.0"
 yapf = "^0.40.0"
 pylint-pytest = "^1.1.2"
 
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.5.0"
+ruff = "^0.1.6"
+
+[tool.ruff]
+ignore-init-module-imports = true
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-

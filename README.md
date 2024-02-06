@@ -9,8 +9,8 @@
   <a href="https://librelingo.app/dev/"><img src="https://img.shields.io/badge/List_of_courses-librelingo.app/dev-darkcyan" /></a>
   <a href="https://librelingo.app/docs/"><img src="https://img.shields.io/badge/Documentation-librelingo.app/docs-darkcyan" /></a>
   <a href="https://github.com/orgs/LibreLingo/projects/1/views/1"><img src="https://img.shields.io/badge/Roadmap-github.com-darkcyan" /></a>
-  
-  
+
+
 </p>
 <hr/>
 
@@ -108,7 +108,7 @@ You can use librelingo-yaml-loader to load YAML-based LibreLingo courses in your
 ```python
 from librelingo_yaml_loader import yaml_loader
 
-course = yaml_loader.load_course("./path/to/my/course") 
+course = yaml_loader.load_course("./path/to/my/course")
 ```
 `load_course` returns a [Course()](https://github.com/kantord/LibreLingo/blob/main/apps/librelingo_yaml_loader/librelingo_yaml_loader/data_types.py) object.
 
@@ -170,7 +170,7 @@ Go through the dev docs [here](https://librelingo.app/docs/).
 
 Still got questions? Our Matrix/FreeNode IRC channel is `#LibreLingo`, join the dev community there and feel free to ask anything.
 * Matrix: [`#LibreLingo`](https://app.element.io/#/room/#space-librelingo:matrix.org) on `matrix.org`
-* IRC: connect to `irc.freenode.net` with your favourite client and join `#LibreLingo` 
+* IRC: connect to `irc.freenode.net` with your favourite client and join `#LibreLingo`
 
 #### are you a linguaphile?
 Learning new language is an awesome experience right? If you wanna let others experience that too, make a course on LibreLingo! Get started [here](https://github.com/kantord/LibreLingo/tree/main/docs/courses).
@@ -346,4 +346,3 @@ LibreLingo is licensed under the AGPL-3.0 license. In addition, course content a
 
 ## Donate
 Help us to keep going
-

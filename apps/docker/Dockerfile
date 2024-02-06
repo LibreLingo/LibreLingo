@@ -5,7 +5,7 @@ RUN mkdir /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
 
 # Setup to allow using poetry
-ENV PATH="/root/.local/bin:$PATH" 
+ENV PATH="/root/.local/bin:$PATH"
 
 # Make sure you have the latest version of things
 RUN apt update
@@ -47,7 +47,7 @@ WORKDIR /LibreLingo
 RUN source $NVM_DIR/nvm.sh && nvm install 16 && nvm use 16 && yarn install
 
 # Install poetry
-RUN curl -sSL https://install.python-poetry.org | python - 
+RUN curl -sSL https://install.python-poetry.org | python -
 
 # Install Python dependencies
 RUN poetry install

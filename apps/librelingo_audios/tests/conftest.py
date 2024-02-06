@@ -45,7 +45,7 @@ def mock_index_entry():
 def terminal(tmp_path, capsys):
     def assert_output_matches(set_of_messages):
         assert set(set_of_messages) == {
-            l for l in capsys.readouterr().out.split("\n") if l != ""
+            line for line in capsys.readouterr().out.split("\n") if line != ""
         }
 
     return SimpleNamespace(

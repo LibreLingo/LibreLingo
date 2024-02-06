@@ -12,7 +12,5 @@ Feature: Skill introduction page
   Scenario: Practicing the skill from the introduction page
     When I open "/course/test-1/skill/animals/introduction"
     Then I read "Introduction to animals"
-    When I click "Practice Animals" 
+    When I click "Practice Animals"
     Then I should be on "/course/test-1/skill/animals"
-
-

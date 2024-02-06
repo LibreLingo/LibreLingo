@@ -17,7 +17,7 @@ Feature: Short text input challange
     And I see an input field
     And the input field is focused
     And the input field has a "Type your answer…" placeholder
-    
+
   Scenario: Virtual keyboard for special characters
     Given I open "/course/test-1/skill/short-input-test-0?testChallenge=14fc2ae4fb35"
     Then I see a virtual keyboard with 16 keys
@@ -32,7 +32,7 @@ Feature: Short text input challange
     Then I see the challenge panel
     And I see a "Skip" button
     And I see a "Submit" button
-    
+
   Scenario: Submitting incorrect answer
     Given I open "/course/test-1/skill/short-input-test-0?testChallenge=14fc2ae4fb35"
     And I type "asdfg"
@@ -40,7 +40,7 @@ Feature: Short text input challange
     Then I read "Incorrect solution"
     And I read "Correct answer: perro"
     And I see a "Continue" button
-    
+
   Scenario: Submitting correct answer
     Given I open "/course/test-1/skill/short-input-test-0?testChallenge=14fc2ae4fb35"
     And I type "perro"

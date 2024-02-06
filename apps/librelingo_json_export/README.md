@@ -19,4 +19,3 @@ from librelingo_json_export.export import export_course
 course = load_course("./courses/french-from-english")
 export_course("./apps/web/src/courses/french-from-english", course)
 ```
-

@@ -11,4 +11,3 @@ Feature: Skipping a challenge
     Given I open "/course/test-1/skill/chips-test-0?testChallenge=5000997897bb"
     When I click "Skip"
     Then I should have progressed
-

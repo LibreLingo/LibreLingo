@@ -353,4 +353,3 @@ class PhraseIdentity(namedtuple("PhraseIdentity", ["text", "source"]))
 
 This is the set of information that identifies a phrase as 'the same'. If any
 of these things change, the phrase will be seen as 'new' and re-generated.
-

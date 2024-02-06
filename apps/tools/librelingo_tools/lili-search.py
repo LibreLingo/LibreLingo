@@ -26,7 +26,6 @@ def main():
     course = load_course(course_path)
     for module in course.modules:
         for skill in module.skills:
-
             # Word(
             #   in_target_language=['el chapeo', 'el chapeyo'],
             #   in_source_language=['the hat'],

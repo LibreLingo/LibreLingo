@@ -17,7 +17,7 @@ Feature: Chips challenge
   Scenario: Using the mini-dictionary
     Given I open "/course/test-1/skill/chips-test-0?testChallenge=c3f7fcb9c86c"
     Then words with definitions have tooltips
-    
+
   Scenario: Submitting an incorrect solution
     Given I open "/course/test-1/skill/chips-test-0?testChallenge=5000997897bb"
     And I click "estás"

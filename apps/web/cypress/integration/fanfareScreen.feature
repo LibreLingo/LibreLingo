@@ -1,5 +1,5 @@
 Feature: Fanfare screen
-  
+
   A screen to display to the user when a practice session is successfully completed
 
   Scenario: Getting to the fanfare screen

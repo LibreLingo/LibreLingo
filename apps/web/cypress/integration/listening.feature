@@ -1,5 +1,5 @@
 Feature: Listening exercise
-  
+
   A challenge type where the user has to type the phrase they hear on an audio recording
 
   Scenario: Getting a listening challenge
@@ -32,7 +32,7 @@ Feature: Listening exercise
     Then I read "Incorrect solution"
     And I read "Correct answer: perro"
     And I see a "Continue" button
-    
+
   Scenario: Submitting correct answer
     Given I open "/course/test-1/skill/listening-test-0?testChallenge=cd183d15d4d1"
     And I type "perro"

@@ -138,5 +138,3 @@ Feature: Sign up form
     And I am not really calling the registration API
     And I click the "Sign up" button
     Then I read "You have to accept the agreements."
-
-

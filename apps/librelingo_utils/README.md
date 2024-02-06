@@ -95,4 +95,3 @@ iterate_words(course: Course)
 ```
 
 "Flatten" a course into a sequence of words
-
