@@ -56,7 +56,7 @@ def get_short_input_challenge(source: Word, course: Course):
     ]
 
 
-def get_cards_challenge(word: Word, _):
+def get_cards_challenge(word: Word, course: Course):
     return [
         {
             "type": "cards",
@@ -69,6 +69,10 @@ def get_cards_challenge(word: Word, _):
             "meaningInSourceLanguage": remove_control_characters_for_display(
                 word.in_source_language[0]
             ),
+            "audio": audio_id(
+                course.target_language,
+                remove_control_characters_for_display(word.in_target_language[0]),
+            ),
             "id": get_dumb_opaque_id("Word", word, "cards"),
             "priority": 0,
             "group": get_dumb_opaque_id("Group", word),
@@ -76,7 +80,7 @@ def get_cards_challenge(word: Word, _):
     ]
 
 
-def get_options_challenge(phrase, _):
+def get_options_challenge(phrase, course: Course):
     return [
         {
             "type": "options",
@@ -85,6 +89,10 @@ def get_options_challenge(phrase, _):
             ),
             "meaningInSourceLanguage": remove_control_characters_for_display(
                 phrase.in_source_language[0]
+            ),
+            "audio": audio_id(
+                course.target_language,
+                remove_control_characters_for_display(phrase.in_target_language[0]),
             ),
             "id": get_dumb_opaque_id("Options", phrase, "options"),
             "priority": 0,

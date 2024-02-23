@@ -3,9 +3,14 @@
   import hotkeys from "hotkeys-js"
   import shuffle from "lodash.shuffle"
   import OptionCard from "./OptionCard.svelte"
+  import { playAudio } from "../../media/sound"
   export let options
   export let selectedOption
   export let disabled
+
+  $: if (selectedOption != null) {
+    playAudio('voice', options[selectedOption].audio);
+  }
 
   // determines which keys correspond to which card
   // skips a number for the fake item (i. e. invisible on desktop)

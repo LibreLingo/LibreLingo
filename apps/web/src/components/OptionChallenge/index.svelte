@@ -4,6 +4,7 @@
   import Options from "../Options.svelte"
   import ChallengePanel from "../ChallengePanel.svelte"
   import { prepareChallenge } from "../../logic"
+    import { playAudio } from "../../media/sound"
 
   export let currentChallenge
   export let alternativeChallenges
@@ -30,6 +31,10 @@
   $: submitChallenge = () => {
       registerResult(options[selectedOption].correct)
       submitted = true
+  }
+
+  $: if (selectedOption != null) {
+    playAudio('voice', options[selectedOption].audio);
   }
 
   onMount(() => {
