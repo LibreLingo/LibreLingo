@@ -49,9 +49,10 @@
       <Button style="primary" type="submit" on:click="{buttonAction}">
         {buttonText}
       </Button>
-    {/if}
-    {#if submit}
+    {:else if submit}
       <Button style="primary" type="submit">Submit</Button>
+    {:else}
+      <Button style="primary" type="submit" disabled={true}>Submit</Button>
     {/if}
   </div>
 </Panel>

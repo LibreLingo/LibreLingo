@@ -10,9 +10,8 @@ Feature: Short text input challange
     And I read "in Test Language!"
     Given I open "/course/test-1/skill/short-input-test-1?testChallenge=fc0a3426d589"
     Then I see a tooltip that says "foo"
-    And I see a panel with only a Skip and a Cancel button
+    And I see a panel with only a Skip, Cancel and a disabled "Submit" button
     And I'm not able to submit
-    And I don't see a "Submit" button
     And I see a card with an image
     And I see an input field
     And the input field is focused
@@ -31,7 +30,7 @@ Feature: Short text input challange
     And I type "el perro"
     Then I see the challenge panel
     And I see a "Skip" button
-    And I see a "Submit" button
+    And I see an enabled "Submit" button
     
   Scenario: Submitting incorrect answer
     Given I open "/course/test-1/skill/short-input-test-0?testChallenge=14fc2ae4fb35"

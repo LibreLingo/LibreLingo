@@ -6,8 +6,7 @@ Feature: Listening exercise
     Given I open "/course/test-1/skill/listening-test-0?testChallenge=cd183d15d4d1"
     Then listening challenge looks correct
     And I read "Type what you hear"
-    And I see a panel with only a Skip, a Cancel, and a Can't listen now button
-    And I don't see a "Submit" button
+    And I see a panel with only a Skip, a Cancel, Can't listen now, and a disabled "Submit" button
     And I'm not able to submit
     And I see an input field
     And the input field is focused
@@ -22,7 +21,7 @@ Feature: Listening exercise
     And I type "asdfg"
     Then I see the challenge panel
     And I see a "Skip" button
-    And I see a "Submit" button
+    And I see an enabled "Submit" button
     And I see a "Can't listen now" button
 
   Scenario: Submitting incorrect answer
@@ -60,14 +59,14 @@ Feature: Listening exercise
     And I click "Submit"
     Then I don't see a "Skip" button
     And I click "Continue"
-    Then I see a panel with only a Skip and a Cancel button
+    Then I see a panel with only a Skip, Cancel, and a disabled "Submit" button
 
   Scenario: Going to the next challenge with keyboard only
     Given I open "/course/test-1/skill/listening-test-0?testChallenge=cd183d15d4d1"
     And I type "perro"
     And I hit the enter key
     And I hit the enter key
-    Then I see a panel with only a Skip and a Cancel button
+    Then I see a panel with only a Skip, Cancel, and a disabled "Submit" button
 
   Scenario: Skipping all listening excercises
     Given I open "/course/test-1/skill/listening-test-0?testChallenge=cd183d15d4d1"

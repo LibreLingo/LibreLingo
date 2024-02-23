@@ -7,8 +7,7 @@ Feature: Option selection challenge
     Then I read "Which of these is"
     And I see 3 options
     And every option is inactive
-    And I see a panel with only a Skip and a Cancel button
-    And I don't see a "Submit" button
+    And I see a panel with only a Skip, Cancel and a disabled "Submit" button
     And option selection challenge looks correct
 
   Scenario: clicking an option
