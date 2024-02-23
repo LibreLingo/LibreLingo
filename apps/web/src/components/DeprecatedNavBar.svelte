@@ -2,17 +2,14 @@
   import { stores } from "@sapper/app"
   import settings from "../settings"
   import authStore from "../auth"
-  import NavBar from "lluis/NewNavBar/NavBar.svelte"
+  import NavBar from "lluis/DeprecatedNavBar/NavBar.svelte"
   import Icon from "lluis/Icon.svelte"
   import NavBarButton from "lluis/DeprecatedNavBar/NavBarButton.svelte"
-  import Logo from "lluis/Logo.svelte"
+  import Logo from "lluis/DeprecatedLogo.svelte"
   import NavBarItem from "lluis/DeprecatedNavBar/NavBarItem.svelte"
   import NavBarButtonSet from "lluis/DeprecatedNavBar/NavBarButtonSet.svelte"
   export let hasAuth = false
   export let repositoryURL = null
-
-  export let dark = false
-  let logoURL = dark === true ? "/images/logo.svg" : "/images/logo-dark.svg"
 
   type WindowWithLogout = Window & {
     _Logout: () => void
@@ -28,9 +25,7 @@
 
 <NavBar>
   <div slot="left">
-    <a href={homepageLink}>
-      <Logo src={logoURL} alt="LibreLingo" link="" />
-    </a>
+    <Logo src="/images/logo.svg" alt="LibreLingo" link={homepageLink} />
   </div>
 
   <div slot="right">
@@ -55,3 +50,9 @@
     </NavBarButtonSet>
   </div>
 </NavBar>
+
+<style>
+  div {
+    height: 100%;
+  }
+</style>

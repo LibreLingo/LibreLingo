@@ -1,5 +1,5 @@
 <script lang="ts">
-  import NavBar from "../components/NavBar.svelte"
+  import NavBar from "../components/DeprecatedNavBar.svelte"
   import Content from "lluis/Content.svelte"
 
   export let readmeHTML: string

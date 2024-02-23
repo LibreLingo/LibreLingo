@@ -1,6 +1,6 @@
 <script>
   import Title from "lluis/Title.svelte"
-  import NavBar from "../../components/NavBar.svelte"
+  import NavBar from "../../components/DeprecatedNavBar.svelte"
   import courses from "../../../../../config/courses.json"
 </script>
 

@@ -48,6 +48,7 @@
   export let align: StackAlign = "normal"
   export let justify: StackJustify = "normal"
   export let spacing: SpacingSize | null = null
+  export let wrap: boolean | null = null
   export let shrink = 1
   export let fullHeight = false
 
@@ -86,6 +87,10 @@
       variables.push(["shrink", `${shrink}`])
     }
 
+    if (wrap) {
+      variables.push(["wrap", "wrap"])
+    }
+
     return variables
       .map(([name, value]) => `--stack-${name}:${value}`)
       .join(";")
@@ -114,6 +119,7 @@
     flex-shrink: var(--stack-shrink);
     height: var(--stack-height);
     flex-direction: var(--stack-direction-mobile);
+    flex-wrap: var(--stack-wrap);
   }
 
   @media screen and (min-width: 577px) {

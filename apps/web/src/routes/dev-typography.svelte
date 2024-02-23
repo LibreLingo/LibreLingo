@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import NavBar from "../components/NavBar.svelte"
+  import NavBar from "../components/DeprecatedNavBar.svelte"
   import Title from "lluis/Title.svelte"
   import DeprecatedButton from "../../../lluis/DeprecatedButton.svelte"
   import Button from "lluis/Button.svelte"

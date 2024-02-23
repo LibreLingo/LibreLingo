@@ -5,5 +5,5 @@ export type SkillType = {
   introduction: string
   id: string
   imageSet: string[]
-  summary: string
+  summary: string[]
 }

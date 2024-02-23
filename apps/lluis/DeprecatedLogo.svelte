@@ -11,10 +11,9 @@
 <style type="text/scss">
   .logo {
     display: block;
-    height: 100%;
 
     img {
-      height: 100%;
+      height: var(--deprecated-navbar-logo-height);
     }
   }
 </style>

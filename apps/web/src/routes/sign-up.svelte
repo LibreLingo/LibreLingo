@@ -3,7 +3,7 @@
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   import db from "../db/db.js"
   import settings from "../settings"
-  import NavBar from "../components/NavBar.svelte"
+  import NavBar from "../components/DeprecatedNavBar.svelte"
   import Button from "lluis/DeprecatedButton.svelte"
   import FormField from "lluis/FormField.svelte"
   import { _ } from "svelte-i18n"

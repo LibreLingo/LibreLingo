@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import Stack from "lluis/Stack.svelte"
   import Translate from "../web/src/Translate.svelte"
   import Hidden from "./Hidden.svelte"

@@ -28,7 +28,7 @@
 
 <script lang="ts">
   import ChallengeScreen from "../../../../../components/ChallengeScreen.svelte"
-  import NavBar from "../../../../../components/NavBar.svelte"
+  import NavBar from "../../../../../components/DeprecatedNavBar.svelte"
   import { sortChallengeGroups } from "./_logic"
   import isBrowser from "../../../../../utils/isBrowser"
 
