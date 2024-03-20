@@ -16,6 +16,7 @@
   import Content from "lluis/Content.svelte"
   import Footer from "lluis/DeprecatedFooter.svelte"
   import type { ModulesType } from "../../../types/ModulesType"
+  import { t } from 'svelte-i18n'
 
   export let courseName = null
   export let modules: ModulesType = null
@@ -27,7 +28,7 @@
 </script>
 
 <svelte:head>
-  <title>LibreLingo - learn {languageName} for free</title>
+  <title>{$t('about.meta.librelingo_learn')} {languageName} {$t('about.meta.for_free')}</title>
 </svelte:head>
 
 <NavBar hasAuth {repositoryURL} />

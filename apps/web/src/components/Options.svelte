@@ -2,6 +2,7 @@
   import { onMount } from "svelte"
   import hotkeys from "hotkeys-js"
   import Option from "../components/Option.svelte"
+  
   export let options
   export let selectedOption
   export let disabled

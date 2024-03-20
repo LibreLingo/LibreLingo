@@ -8,6 +8,7 @@
   import Column from "lluis/Column.svelte"
   import Columns from "lluis/Columns.svelte"
   import evaluateAnswer from "@librelingo/answer-corrector/src/index"
+  import { t } from 'svelte-i18n'
 
   export let challenge
   export let registerResult
@@ -61,9 +62,9 @@
 <form on:submit|preventDefault="{submitChallenge}">
   <div class="section">
     <p class="is-size-1 is-size-2-tablet is-size-4-mobile has-text-centered">
-      Type
+      {$t('short_input_challenge.type')}
       <Phrase phrase="{challenge.phrase}" />
-      in
+      {$t('short_input_challenge.in')}
       {languageName}!
     </p>
   </div>
@@ -94,7 +95,7 @@
   {#if answer && !submitted}
     <ChallengePanel
       message=""
-      buttonText="Submit"
+      buttonText={$t('short_input_challenge.submit')}
       submit
       skipAction="{skipChallenge}"
       skipAllAction="{skipAllChallenges}"
@@ -113,9 +114,9 @@
   {#if submitted}
     {#if !correct}
       <ChallengePanel
-        message="Incorrect solution!"
-        messageDetail="{`Correct answer: ${challenge.formInTargetLanguage[0]}`}"
-        buttonText="Continue"
+        message={$t('short_input_challenge.incorrect_solution')}
+        messageDetail="{`${$t('short_input_challenge.correct_answer')} ${challenge.formInTargetLanguage[0]}`}"
+        buttonText={$t('short_input_challenge.continue')}
         incorrect
         buttonAction="{finishChallenge}"
       />
@@ -123,9 +124,9 @@
     {#if correct}
       {#if !spellingSuggestion}
         <ChallengePanel
-          message="Correct solution!"
+          message={$t('short_input_challenge.correct_solution')}
           messageDetail=""
-          buttonText="Continue"
+          buttonText={$t('short_input_challenge.continue')}
           correct
           buttonAction="{finishChallenge}"
         />
@@ -133,9 +134,9 @@
 
       {#if spellingSuggestion}
         <ChallengePanel
-          message="You have a typo!"
+          message={$t('short_input_challenge.you_have_a_typo')}
           messageDetail="{spellingSuggestion}"
-          buttonText="Continue"
+          buttonText={$t('short_input_challenge.continue')}
           typo
           buttonAction="{finishChallenge}"
         />

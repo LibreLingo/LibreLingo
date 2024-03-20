@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from "lluis/DeprecatedButton.svelte"
   import Panel from "lluis/Panel.svelte"
+  import { t } from 'svelte-i18n'
 
   export let buttonText
   export let buttonAction = null
@@ -32,11 +33,11 @@
 <Panel background="{background}">
   <div slot="left">
     {#if skipAction}
-      <Button on:click="{skipAction}">Skip</Button>
+      <Button on:click="{skipAction}">{$t('challenge_panel.skip')}</Button>
     {/if}
-    <Button on:click="{skipAllAction}">Cancel</Button>
+    <Button on:click="{skipAllAction}">{$t('challenge_panel.cancel')}</Button>
     {#if skipAllVoice}
-      <Button on:click="{skipAllVoice}">Can't listen now</Button>
+      <Button on:click="{skipAllVoice}">{$t('challenge_panel.cant_listen_now')}</Button>
     {/if}
     {#if message}<b>{message}</b>{/if}
     {#if messageDetail}
@@ -51,7 +52,7 @@
       </Button>
     {/if}
     {#if submit}
-      <Button style="primary" type="submit">Submit</Button>
+      <Button style="primary" type="submit">{$t('challenge_panel.submit')}</Button>
     {/if}
   </div>
 </Panel>
