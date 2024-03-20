@@ -8,8 +8,8 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 requests = "^2.26.0"
 Jinja2 = "^3.0.3"
-librelingo-json-export = "^0.11.0"
-librelingo-yaml-loader = "^1.12.0"
+librelingo-json-export = { path = "../librelingo_json_export/", develop = true }
+librelingo-yaml-loader = { path = "../librelingo_yaml_loader/", develop = true }
 
 [tool.poetry.dev-dependencies]
 

@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-librelingo-types = "^3.0.0"
+librelingo-types = { path = "../librelingo_types/", develop = true }
 regex = "^2023.0.0"
 
 [tool.poetry.dev-dependencies]
