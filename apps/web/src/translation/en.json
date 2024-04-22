@@ -5,6 +5,11 @@
     "meta.title": "LibreLingo - learn a language for free",
     "index.start_german_course": "Start learning German",
     "index.meta.description": "LibreLingo is an experiment to create a community driven language-learning platform. Learn a language for free.",
+    "about.meta.practice": "Practice",
+    "about.meta.go_back_to_the_course": "Go back to the course",
+    "about.meta.librelingo_learn": "LibreLingo - learn",
+    "about.meta.in": "in",
+    "about.meta.for_free": "for free",
     "about.meta.description": "LibreLingo is an open source, community-driven language-learning platform that gives its users and contributors a way to influence its future.",
     "development.meta.description": "Read about the recent major new features in LibreLingo, an experiment to create a community driven language-learning platform.",
     "sign-up.meta.description": "Sign up to LibreLingo and learn a language for free.",
@@ -12,5 +17,73 @@
     "index.development_docs_english_only": "Development documentation (English only)",
     "course_page.button_practice": "Practice",
     "course_page.button_continue": "Continue learning",
-    "course_page.button_learn": "Learn"
+    "course_page.button_learn": "Learn",
+
+    "deck_challenge.submit": "Submit",
+    "deck_challenge.continue": "Continue",
+    "deck_challenge.correct_solution": "Correct solution!",
+    "deck_challenge.which_of_these_is": "Which of these is",
+    "deck_challenge.incorrect_solution": "Incorrect solution!",
+
+    "option_challenge.submit": "Submit",
+    "option_challenge.continue": "Continue",
+    "option_challenge.correct_answer": "Correct answer:",
+    "option_challenge.correct_solution": "Correct solution!",
+    "option_challenge.which_of_these_is": "Which of these is",
+    "option_challenge.incorrect_solution": "Incorrect solution!",
+
+    "listening_challenge.submit": "Submit",
+    "listening_challenge.continue": "Continue",
+    "listening_challenge.meaning": "Meaning:",
+    "listening_challenge.correct_answer": "Correct answer:",
+    "listening_challenge.you_have_a_typo": "You have a typo!",
+    "listening_challenge.correct_solution": "Correct solution!",
+    "listening_challenge.incorrect_solution": "Incorrect solution!",
+    "listening_challenge.type_what_you_hear": "Type what you hear",
+
+    "challenge_panel.skip": "Skip",
+    "challenge_panel.cancel": "Cancel",
+    "challenge_panel.submit": "Submit",
+    "challenge_panel.cant_listen_now": "Can't listen now",
+
+    "fanfare_screen.challenges": "challenges",
+    "fanfare_screen.youve_completed": "You've completed",
+    "fanfare_screen.lesson_completed": "Lesson completed!",
+    "fanfare_screen.continue_to_course_page": "Continue to course page",
+    "fanfare_screen.excited_about_librelingo": "Excited about LibreLingo?",
+
+    "buttons.learn": "Learn",
+    "buttons.practice": "Practice",
+    "buttons.continue_learning": "Continue learning",
+
+    "nav_bar.sign_up": "Sign up",
+    "nav_bar.log_in": "Log in",
+    "nav_bar.log_out": "Log out",
+
+    "short_input_challenge.in": "in",
+    "short_input_challenge.type": "Type",
+    "short_input_challenge.submit": "Submit",
+    "short_input_challenge.continue": "Continue",
+    "short_input_challenge.correct_answer": "Correct answer:",
+    "short_input_challenge.you_have_a_typo": "You have a typo!",
+    "short_input_challenge.correct_solution": "Correct solution!",
+    "short_input_challenge.incorrect_solution": "Incorrect solution!",
+
+    "twitter.button.tweet_about_librelingo": "Tweet about LibreLingo",
+
+    "chips_challenge.submit": "Submit",
+    "chips_challenge.continue": "Continue",
+    "chips_challenge.translate": "Translate",
+    "chips_challenge.correct_answer": "Correct answer:",
+    "chips_challenge.correct_solution": "Correct solution!",
+    "chips_challenge.incorrect_solution": "Incorrect solution!",
+
+    "dev.developer_tools": "Developer tools",
+    "dev.courses": "Courses",
+    "dev.course_name": "Course name",
+    "dev.devtools": "Devtools",
+    "dev.repo": "Repo",
+
+    "summary.learn": "Learn:"
+
 }

@@ -2,18 +2,19 @@
   import Title from "lluis/Title.svelte"
   import NavBar from "../../components/NavBar.svelte"
   import courses from "../../../../../config/courses.json"
+  import { t } from 'svelte-i18n'
 </script>
 
 <NavBar />
 
-<Title size={2}>Developer tools</Title>
-<Title size={3}>Courses</Title>
+<Title size={2}>{$t('dev.developer_tools')}</Title>
+<Title size={3}>{$t('dev.courses')}</Title>
 
 <table>
   <thead>
-    <td>Course name</td>
-    <td>Devtools</td>
-    <td>Repo</td>
+    <td>{$t('dev.course_name')}</td>
+    <td>{$t('dev.devtools')}</td>
+    <td>{$t('dev.repo')}</td>
   </thead>
   {#each courses as course}
     <tr>

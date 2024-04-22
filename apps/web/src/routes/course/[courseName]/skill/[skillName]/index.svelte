@@ -31,6 +31,7 @@
   import NavBar from "../../../../../components/NavBar.svelte"
   import { sortChallengeGroups } from "./_logic"
   import isBrowser from "../../../../../utils/isBrowser"
+  import { t } from "svelte-i18n"
 
   export let preview = null
   export let loading = true
@@ -82,7 +83,7 @@
 </script>
 
 <svelte:head>
-  <title>LibreLingo - learn {skillName} in {languageName} for free</title>
+  <title>{$t("about.meta.librelingo_learn")} {skillName} {$t("about.meta.in")} {languageName} {$t("about.meta.for_free")}</title>
 </svelte:head>
 
 <NavBar {repositoryURL} />

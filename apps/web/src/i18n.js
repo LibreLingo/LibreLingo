@@ -7,8 +7,9 @@ register("de", () => require("./translation/de.json"))
 register("it", () => require("./translation/it.json"))
 register("eo", () => require("./translation/eo.json"))
 register("pl", () => require("./translation/pl.json"))
+register("sr", () => require("./translation/sr.json"))
 
 init({
-  fallbackLocale: "en",
-  initialLocale: "en",
+  fallbackLocale: "sr",
+  initialLocale: "sr",
 })

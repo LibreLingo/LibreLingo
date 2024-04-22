@@ -7,6 +7,7 @@
   import Phrase from "../Phrase.svelte"
   import { createSortable } from "./sortable"
   import { getNodeType, getChipIndex } from "./chips"
+  import { t } from 'svelte-i18n'
 
   export let challenge
   export let registerResult
@@ -116,7 +117,7 @@
 <form on:submit|preventDefault={submitChallenge}>
   <div class="section">
     <p class="is-size-1 is-size-2-tablet is-size-4-mobile has-text-centered">
-      Translate
+      {$t('chips_challenge.translate')}
       <Phrase phrase={challenge.phrase} />
     </p>
   </div>
@@ -164,7 +165,7 @@
   {#if $answer.length > 0 && !submitted}
     <ChallengePanel
       message=""
-      buttonText="Submit"
+      buttonText={$t('chips_challenge.submit')}
       submit
       skipAction={skipChallenge}
       skipAllAction={skipAllChallenges}
@@ -174,17 +175,17 @@
   {#if submitted}
     {#if !correct}
       <ChallengePanel
-        message="Incorrect solution!"
-        messageDetail={`Correct answer: ${challenge.formattedSolution}`}
-        buttonText="Continue"
+        message={$t('chips_challenge.incorrect_solution')}
+        messageDetail={`${$t('chips_challenge.correct_answer')} ${challenge.formattedSolution}`}
+        buttonText={$t('chips_challenge.continue')}
         incorrect
         buttonAction={finishChallenge}
       />
     {/if}
     {#if correct}
       <ChallengePanel
-        message="Correct solution!"
-        buttonText="Continue"
+        message={$t('chips_challenge.correct_solution')}
+        buttonText={$t('chips_challenge.continue')}
         correct
         buttonAction={finishChallenge}
       />

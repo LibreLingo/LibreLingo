@@ -12,6 +12,7 @@
   import Column from "lluis/Column.svelte"
   import Columns from "lluis/Columns.svelte"
   import Title from "lluis/Title.svelte"
+  import { t } from 'svelte-i18n'
 
   export let courseURL
   export let skillId
@@ -44,17 +45,17 @@
         </Column>
         <Column size="2/5">
           <div class="is-centered-mobile">
-            <Title size={2} sizeMobile="3" multiline>Lesson completed!</Title>
+            <Title size={2} sizeMobile="3" multiline>{$t('fanfare_screen.lesson_completed')}</Title>
             <Title size={2} isSubtitle={true} multiline>
-              You've completed
+              {$t('fanfare_screen.youve_completed')}
               {stats.correct}
-              challenges
+              {$t('fanfare_screen.challenges')}
             </Title>
             <Button size="medium" href={courseURL} style="primary">
-              Continue to course page
+              {$t('fanfare_screen.continue_to_course_page')}
             </Button>
             <div class="bottom">
-              <Title size={5}>Excited about LibreLingo?</Title>
+              <Title size={5}>{$t('fanfare_screen.excited_about_librelingo')}</Title>
               <TwitterButton />
             </div>
           </div>

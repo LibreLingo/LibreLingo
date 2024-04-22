@@ -1,5 +1,4 @@
 <script lang="ts" context="module">
-  import { _ } from "svelte-i18n"
   import { get_skill_introduction } from "../../../../../course-client"
 
   export async function preload(page) {
@@ -31,6 +30,7 @@
   import Button from "lluis/DeprecatedButton.svelte"
   import MarkDownPage from "../../../../../components/MarkDownPage.svelte"
   import isBrowser from "../../../../../utils/isBrowser"
+  import { t } from "svelte-i18n"
 
   export let preview = null
   export let loading = true
@@ -61,17 +61,17 @@
 </script>
 
 {#if !loading}
-  <MarkDownPage {readmeHTML} {title} description={$_("about.meta.description")}>
+  <MarkDownPage {readmeHTML} {title} description={$t("about.meta.description")}>
     <div>
       <Button
         style="secondary"
         href={`course/${courseName}`}
-        >Go back to the course</Button
+        >{$t("about.meta.go_back_to_the_course")}</Button
       >
       <Button
         style="primary"
         href={`course/${courseName}/skill/${practiceHref}`}
-        >Practice {title}</Button
+        >{$t("about.meta.practice")} {title}</Button
       >
     </div>
   </MarkDownPage>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from "lluis/DeprecatedButton.svelte"
   import Icon from "lluis/Icon.svelte"
+  import { t } from 'svelte-i18n'
 </script>
 
 <Button
@@ -10,5 +11,5 @@
   <slot name="icon-left">
 			<Icon icon="twitter" prefix="fab" size="small" />
   </slot>
-  <div>Tweet about LibreLingo</div>
+  <div>{$t('twitter.button.tweet_about_librelingo')}</div>
 </Button>

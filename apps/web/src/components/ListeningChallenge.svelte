@@ -9,6 +9,7 @@
   import Button from "lluis/DeprecatedButton.svelte"
   import Column from "lluis/Column.svelte"
   import Columns from "lluis/Columns.svelte"
+  import { t } from 'svelte-i18n'
 
   export let challenge
   export let registerResult
@@ -77,7 +78,7 @@
 <form on:submit|preventDefault="{submitChallenge}">
   <div class="section">
     <p class="is-size-1 is-size-2-tablet is-size-4-mobile has-text-centered">
-      Type what you hear
+      {$t('listening_challenge.type_what_you_hear')}
     </p>
   </div>
 
@@ -100,7 +101,7 @@
   {#if answer && !submitted}
     <ChallengePanel
       message=""
-      buttonText="Submit"
+      buttonText={$t('listening_challenge.submit')}
       submit
       skipAction="{skipChallenge}"
       skipAllAction="{skipAllChallenges}"
@@ -121,9 +122,9 @@
   {#if submitted}
     {#if !correct}
       <ChallengePanel
-        message="Incorrect solution!"
-        messageDetail="{`Correct answer: ${challenge.answer}`}"
-        buttonText="Continue"
+        message={$t('listening_challenge.incorrect_solution')}
+        messageDetail="{`${$t('listening_challenge.correct_answer')} ${challenge.answer}`}"
+        buttonText={$t('listening_challenge.continue')}
         incorrect
         buttonAction="{finishChallenge}"
       />
@@ -132,9 +133,9 @@
     {#if correct}
       {#if !spellingSuggestion}
         <ChallengePanel
-          message="Correct solution!"
-          messageDetail="{`Meaning: "${challenge.meaning}"`}"
-          buttonText="Continue"
+          message={$t('listening_challenge.correct_solution')}
+          messageDetail="{`${$t('listening_challenge.meaning')} "${challenge.meaning}"`}"
+          buttonText={$t('listening_challenge.continue')}
           correct
           buttonAction="{finishChallenge}"
         />
@@ -142,10 +143,10 @@
 
       {#if spellingSuggestion}
         <ChallengePanel
-          message="You have a typo!"
+          message={$t('listening_challenge.you_have_a_typo')}
           messageDetail="{spellingSuggestion ||
-            `Meaning: "${challenge.meaning}"`}"
-          buttonText="Continue"
+            `${$t('listening_challenge.meaning')} "${challenge.meaning}"`}"
+          buttonText={$t('listening_challenge.continue')}
           typo
           buttonAction="{finishChallenge}"
         />
